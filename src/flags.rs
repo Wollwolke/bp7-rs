@@ -103,6 +103,9 @@ bitflags! {
 /// The bundle is a fragment.
     const BUNDLE_IS_FRAGMENT = 0x000001;
 
+/// Mark bundles older than this one as expired.
+    const BUNDLE_EXPIRE_OLDER_BUNDLES = 0x200000;
+
     const BUNDLE_CFRESERVED_FIELDS = 0xE218;
     }
 }
@@ -135,6 +138,7 @@ pub trait BundleValidation {
                     .to_string(),
             ));
         }
+        // TODO: add check BUNDLE_EXPIRE_OLDER_BUNDLES flag
         let admin_rec_check = !flags
             .contains(BundleControlFlags::BUNDLE_ADMINISTRATIVE_RECORD_PAYLOAD)
             || (!flags.contains(BundleControlFlags::BUNDLE_STATUS_REQUEST_RECEPTION)
