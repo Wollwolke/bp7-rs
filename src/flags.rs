@@ -103,8 +103,8 @@ bitflags! {
 /// The bundle is a fragment.
     const BUNDLE_IS_FRAGMENT = 0x000001;
 
-/// Mark bundles older than this one as expired.
-    const BUNDLE_EXPIRE_OLDER_BUNDLES = 0x200000;
+/// Remove bundles older than the current one with identical source & destination.
+    const BUNDLE_REMOVE_OLDER_BUNDLES = 0x200000;
 
     const BUNDLE_CFRESERVED_FIELDS = 0xE218;
     }
